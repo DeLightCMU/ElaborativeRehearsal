@@ -8,9 +8,9 @@ Elaborating a new concept and relating it to known concepts, we reach the dawn o
 
 New SOTA results are also achieved on the standard ZSAR benchmarks (Olympics, HMDB51, UCF101) as well as the first large scale ZSAR benchmak (we proposed) on the Kinetics database.  
 
-![teaser](https://octodex.github.com/figures/teaser.png)
-![framework](https://octodex.github.com/figures/framework.png)
-![ZSARvsFew](https://octodex.github.com/figures/ZSARvsFew.png)
+![teaser](https://github.com/DeLightCMU/ElaborativeRehearsal/figures/teaser.png)
+![framework](https://github.com/DeLightCMU/ElaborativeRehearsal/figures/framework.png)
+![ZSARvsFew](https://github.com/DeLightCMU/ElaborativeRehearsal/figures/ZSARvsFew.png)
 
 
 ### Citation: 
