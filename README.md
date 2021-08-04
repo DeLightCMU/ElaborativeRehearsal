@@ -11,7 +11,7 @@ New SOTA results are also achieved on the standard ZSAR benchmarks (Olympics, HM
 <img src = "figures/teaser.png" width ="280" /> <img src = "figures/ZSARvsFew.png" width ="520" />
 <img src = "figures/framework.png" width ="800" />
 
-
+### Codes and pre-trained models will be uploaded soon
 
 ### Citation: 
 
