@@ -8,7 +8,7 @@ Elaborating a new concept and relating it to known concepts, we reach the dawn o
 
 New SOTA results are also achieved on the standard ZSAR benchmarks (Olympics, HMDB51, UCF101) as well as the first large scale ZSAR benchmak (we proposed) on the Kinetics database.  
 
-<img src = "figures/teaser.png" width ="280" /> <img src = "figures/ZSARvsFew.png" width ="580" />
+<img src = "figures/teaser.png" width ="280" /> <img src = "figures/ZSARvsFew.png" width ="520" />
 <img src = "figures/framework.png" width ="800" />
 
 
