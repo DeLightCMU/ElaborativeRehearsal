@@ -8,9 +8,9 @@ Elaborating a new concept and relating it to known concepts, we reach the dawn o
 
 New SOTA results are also achieved on the standard ZSAR benchmarks (Olympics, HMDB51, UCF101) as well as the first large scale ZSAR benchmak (we proposed) on the Kinetics database.  
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/elaborative-rehearsal-for-zero-shot-action/zero-shot-action-recognition-on-hmdb51)](https://paperswithcode.com/sota/zero-shot-action-recognition-on-hmdb51?p=elaborative-rehearsal-for-zero-shot-action)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/elaborative-rehearsal-for-zero-shot-action/zero-shot-action-recognition-on-kinetics)](https://paperswithcode.com/sota/zero-shot-action-recognition-on-kinetics?p=elaborative-rehearsal-for-zero-shot-action)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/elaborative-rehearsal-for-zero-shot-action/zero-shot-action-recognition-on-olympics)](https://paperswithcode.com/sota/zero-shot-action-recognition-on-olympics?p=elaborative-rehearsal-for-zero-shot-action)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/elaborative-rehearsal-for-zero-shot-action/zero-shot-action-recognition-on-ucf101)](https://paperswithcode.com/sota/zero-shot-action-recognition-on-ucf101?p=elaborative-rehearsal-for-zero-shot-action)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/elaborative-rehearsal-for-zero-shot-action/zero-shot-action-recognition-on-kinetics)](https://paperswithcode.com/sota/zero-shot-action-recognition-on-kinetics?p=elaborative-rehearsal-for-zero-shot-action)
 
 
 <img src = "figures/teaser.png" width ="280" /> <img src = "figures/ZSARvsFew.png" width ="520" />
