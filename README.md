@@ -2,7 +2,7 @@
   
 This is an official implementation of:
 
-**Shizhe Chen and Dong Huang**, ***Elaborative Rehearsal for Zero-shot Action Recognition***, ICCV, 2021. 
+**Shizhe Chen and Dong Huang**, ***Elaborative Rehearsal for Zero-shot Action Recognition***, ICCV, 2021. [Arxiv Version](https://arxiv.org/abs/2108.02833)
 
 Elaborating a new concept and relating it to known concepts, we reach the dawn of zero-shot action recognition models being comparable to supervised models trained on few samples.
 
