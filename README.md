@@ -78,7 +78,6 @@ CUDA_VISIBLE_DEVICES=0 python zeroshot/driver/zsl_ervse.py zeroshot/configs/zsl_
 ## Citation
 If you find this repository useful, please cite our paper:
 ```bash
->>>>>>> 00e56ac1ae0778c45dae6b54c5ac5be9ee0bfd65
 @proceeding{ChenHuang2021ER,
   title={Elaborative Rehearsal for Zero-shot Action Recognition},
   author={Shizhe Chen and Dong Huang},
