@@ -1,0 +1,82 @@
+config:
+  gpus: 1 
+  verbose: True
+  fp16_opt: 2
+
+  model:
+    vis_encoder:
+      dim_input: 2048
+      dim_embed: 512
+      dropout: 0.5
+      l2norm: True
+      weight_decay: 0.0001
+    txt_backbone:
+      type: TextBert
+      kwargs:
+        fix_bert_before: encoder.layer.10
+      weight_decay: 0.0001
+    txt_encoder:
+      dim_input: 768
+      dim_embed: 512
+      pooling_method: avg
+      dropout: 0.5
+      l2norm: True
+      weight_decay: 0.0001
+    
+  trainer:
+    loss:
+      type: ce # ce, rank
+      kwargs:
+        temporature: 0.1
+        # margin: 0.2
+        # max_violation: False
+        # hard_topk: 1
+    batch_size: 128 
+    num_epochs: 10
+    val_per_epoch: True
+    save_per_epoch: True
+    val_iter: -1
+    save_iter: -1
+    monitor_iter: 1000
+    summary_iter: 1000
+    clip_gradient: 10
+    lr_scheduler:
+      warmup_iter: 1700
+      warmup_type: exp
+      type: CosineAnnealingLR
+      kwargs:
+        T_max: 17000
+    optimizer:
+      type: Adam
+      kwargs:
+        lr: 0.0001
+
+  evaluate:
+    batch_size: 128 
+
+  saver:
+    output_dir: datasets/Kinetics/results/VSE/pretsm.res50.txt.bert.fix.10.name-defn.avg
+
+  dataset:
+    cat_word_with_defn: 2
+    tokenizer: 'bert'
+    max_words_in_text: 100
+    
+    num_workers: 4
+    ft_dir: datasets/Kinetics/features/tsm_resnet50
+    label_text_file: datasets/Kinetics/zsl220/classes620_label_defn.json
+    int2word_file: NULL 
+    
+    k_class_split: 0
+    class_idxs_files: 
+      trn: datasets/Kinetics/zsl220/trn_class_idxs.json
+      val: datasets/Kinetics/zsl220/val_class_idxs.json
+      tst: datasets/Kinetics/zsl220/tst_class_idxs.json
+    name_files:
+      trn: datasets/Kinetics/zsl220/trn_video_names.json
+      val: datasets/Kinetics/zsl220/val_video_names.json
+      tst: datasets/Kinetics/zsl220/tst_video_names.json
+    meta_files:
+      trn: datasets/Kinetics/zsl220/trn_video_metas.jsonl
+      val: datasets/Kinetics/zsl220/val_video_metas.jsonl
+      tst: datasets/Kinetics/zsl220/tst_video_metas.jsonl

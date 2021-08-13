@@ -1,0 +1,4 @@
+config:
+  freeze: False
+  lr_mult: 1.0
+  weight_decay: 0

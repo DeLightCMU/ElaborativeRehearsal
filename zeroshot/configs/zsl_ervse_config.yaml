@@ -1,0 +1,96 @@
+config:
+  gpus: 1
+  verbose: True
+  fp16_opt: 2
+
+  model:
+    vis_encoder:
+      dim_input: 2048
+      dim_embed: 512
+      dropout: 0.
+      l2norm: True
+      weight_decay: 0.0001
+    txt_backbone:
+      type: TextBert
+      kwargs:
+        fix_bert_before: encoder.layer.10
+    txt_encoder:
+      dim_input: 768
+      dim_embed: 512
+      pooling_method: avg
+      dropout: 0.5
+      l2norm: True
+      weight_decay: 0.0001
+    act_gate_fc:
+      weight_decay: 0.0001
+    obj_gate_fc:
+      weight_decay: 0.0001
+    comb_obj_stream: True
+    topk_vis_cpts: 5
+    fusion_type: 3 # 0: early fusion, 1: late fusion
+    clamp_obj_logits: True
+    
+  trainer:
+    loss:
+      er_loss_weight: 1
+      topk_er_cpts: 5
+      type: ce # ce, rank
+      kwargs:
+        temporature: 0.1
+        # margin: 0.2
+        # max_violation: False
+        # hard_topk: 1
+    batch_size: 128
+    num_epochs: 10
+    val_per_epoch: True
+    save_per_epoch: True
+    val_iter: -1
+    save_iter: -1
+    monitor_iter: 1000
+    summary_iter: 1000
+    clip_gradient: 10
+    lr_scheduler:
+      warmup_iter: 1700
+      warmup_type: exp
+      type: CosineAnnealingLR
+      kwargs:
+        T_max: 17000
+    optimizer:
+      type: Adam
+      kwargs:
+        lr: 0.0001
+
+  evaluate:
+    batch_size: 128
+
+  saver:
+    output_dir: datasets/Kinetics/results/ERVSE/bitcpt.name-defn.5.pretsm.res50.txt.bert.fix.10.avg.ercpt.name-defn.5.fuse.3
+
+  dataset:
+    cat_word_with_defn: 2
+    tokenizer: NULL
+    max_words_in_text: 100
+    
+    num_workers: 4
+    ft_dir: datasets/Kinetics/features/tsm_resnet50
+    label_text_file: datasets/Kinetics/zsl220/classes620_label_defn.json
+    video_concept_file: datasets/Kinetics/features/bit-m-r50x1_top20_preds.json
+    bit_cpt_lemma_file: datasets/premodels/BiT/imagenet21k_wordnet_lemmas.txt
+    bit_cpt_wnid_file: datasets/premodels/BiT/imagenet21k_wordnet_ids.txt
+    cat_cpt_defn: 
+      in: True
+      out: True
+    
+    k_class_split: 0
+    class_idxs_files: 
+      trn: datasets/Kinetics/zsl220/trn_class_idxs.json
+      val: datasets/Kinetics/zsl220/val_class_idxs.json
+      tst: datasets/Kinetics/zsl220/tst_class_idxs.json
+    name_files:
+      trn: datasets/Kinetics/zsl220/trn_video_names.json
+      val: datasets/Kinetics/zsl220/val_video_names.json
+      tst: datasets/Kinetics/zsl220/tst_video_names.json
+    meta_files:
+      trn: datasets/Kinetics/zsl220/trn_video_metas.jsonl
+      val: datasets/Kinetics/zsl220/val_video_metas.jsonl
+      tst: datasets/Kinetics/zsl220/tst_video_metas.jsonl

@@ -1,0 +1,40 @@
+config:
+  gpus: 1
+  verbose: True
+  fp16_opt: NULL
+
+  model:
+    submods:
+
+  trainer:
+    batch_size: 128
+    num_epoch: 100
+    val_per_epoch: True
+    save_per_epoch: True
+    val_iter: -1
+    save_iter: -1
+    monitor_iter: -1
+    summary_iter: -1
+    clip_gradient: 0
+    lr_scheduler:
+      warmup_iter: 0
+      warmup_type: linear
+      type: CosineAnnealingLR
+      kwargs:
+        T_max: 1000
+    optimizer:
+      type: Adam
+      kwargs:
+        lr: 0.0001
+
+  tester:
+    batch_size: 128
+
+  saver:
+    log_dir: ''
+    model_dir: ''
+    pred_dir: ''
+    resume_file: ''
+
+  dataset:
+    num_workers: 4

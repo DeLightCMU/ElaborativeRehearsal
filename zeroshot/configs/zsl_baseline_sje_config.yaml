@@ -1,0 +1,63 @@
+config:
+  gpus: 1
+  verbose: True
+  fp16_opt: NULL
+
+  model:
+    bilinear:
+      dim_vis_ft: 2048
+      dim_txt_ft: 300
+    txt_norm: True
+    dropout: 0.5
+
+  trainer:
+    loss:
+      margin: 0.1
+      max_violation: True
+      topk: 1
+      reduction: sum # sum, mean
+    batch_size: 128
+    num_epochs: 30
+    val_per_epoch: True
+    save_per_epoch: True
+    val_iter: -1
+    save_iter: -1
+    monitor_iter: 1000
+    summary_iter: 1000
+    clip_gradient: 10
+    lr_scheduler:
+      warmup_iter: 2000
+      warmup_type: exp
+      type: CosineAnnealingLR
+      kwargs:
+        T_max: 50000
+    optimizer:
+      type: Adam
+      kwargs:
+        lr: 0.0001
+
+  evaluate:
+    batch_size: 128
+
+  saver:
+    output_dir: datasets/Kinetics/results/zsl_baselines/SJE/vid.pretsm.res50.txt.glove42b.margin.0.1
+
+  dataset:
+    num_workers: 4
+    ft_dir: datasets/Kinetics/features/tsm_resnet50
+    label_embed_file: datasets/Kinetics/zsl220/labels_glove42b.npy
+    k_class_split: 0
+    class_idxs_files: 
+      trn: datasets/Kinetics/zsl220/trn_class_idxs.json
+      val: datasets/Kinetics/zsl220/val_class_idxs.json
+      tst: datasets/Kinetics/zsl220/tst_class_idxs.json
+    name_files:
+      trn: datasets/Kinetics/zsl220/trn_video_names.json
+      val: datasets/Kinetics/zsl220/val_video_names.json
+      tst: datasets/Kinetics/zsl220/tst_video_names.json
+    meta_files:
+      trn: datasets/Kinetics/zsl220/trn_video_metas.jsonl
+      val: datasets/Kinetics/zsl220/val_video_metas.jsonl
+      tst: datasets/Kinetics/zsl220/tst_video_metas.jsonl
+    
+
