@@ -75,6 +75,10 @@ CUDA_VISIBLE_DEVICES=0 python zeroshot/driver/zsl_cptembed.py zeroshot/configs/z
 CUDA_VISIBLE_DEVICES=0 python zeroshot/driver/zsl_ervse.py zeroshot/configs/zsl_ervse_config.yaml --is_train
 ```
 
+### ZSAR Pretrained Models
+Our best model for Kinetics-ZSAR can be downloaded from [Dropbox](https://www.dropbox.com/sh/3bo5zlpqeyphi2z/AAD77G_Am2pAEF4XGyp2fI3Aa?dl=0).
+It achieves top-1 acc 42.1 and top-5 acc 73.1.
+
 ## Citation
 If you find this repository useful, please cite our paper:
 ```bash
